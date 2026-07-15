@@ -2,50 +2,64 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import {
   ShieldCheck,
-  Lightbulb,
-  Clock3,
+  Globe,
   Gem,
-  Leaf,
+  Handshake,
+  Award,
   Users,
+  Clock,
+  Leaf,
   ArrowUpRight,
 } from "lucide-react";
 
 const features = [
   {
-    icon: Lightbulb,
-    title: "Innovative Concepts",
-    desc: "Creative and modern architectural solutions.",
+    icon: ShieldCheck,
+    title: "Authenticity Guaranteed",
+    desc: "Every collection is carefully inspected by experienced specialists.",
     number: "01",
   },
   {
-    icon: ShieldCheck,
-    title: "Trusted Quality",
-    desc: "Premium execution with refined detailing.",
+    icon: Award,
+    title: "Professional Evaluation",
+    desc: "We assess historical significance, rarity, and current market value.",
     number: "02",
   },
   {
-    icon: Clock3,
-    title: "Timely Delivery",
-    desc: "Efficient project completion with precision.",
+    icon: Globe,
+    title: "Global Network",
+    desc: "Strong relationships with collectors, investors, museums, and dealers worldwide.",
     number: "03",
   },
   {
-    icon: Gem,
-    title: "Luxury Finishes",
-    desc: "Elegant materials and timeless interiors.",
+    icon: ShieldCheck,
+    title: "Secure Transactions",
+    desc: "Professional handling with complete confidentiality.",
     number: "04",
   },
   {
-    icon: Leaf,
-    title: "Sustainable Design",
-    desc: "Eco-conscious architecture for modern living.",
+    icon: Gem,
+    title: "Fair Market Pricing",
+    desc: "Transparent valuations based on international market demand.",
     number: "05",
   },
   {
     icon: Users,
-    title: "Client Focused",
-    desc: "Collaborative approach from concept to completion.",
+    title: "Personalized Service",
+    desc: "Every client receives dedicated guidance from our experts.",
     number: "06",
+  },
+  {
+    icon: Clock,
+    title: "Heritage Premium",
+    desc: "We are passionate about preserving history for future generations.",
+    number: "07",
+  },
+  {
+    icon: Handshake,
+    title: "Trust & Integrity",
+    desc: "Our business is built on honesty, transparency, and long-term relationships.",
+    number: "08",
   },
 ];
 
@@ -60,14 +74,11 @@ const WhyChooseUs = () => {
   return (
     <section
       ref={ref}
-      className="relative py-24 bg-black overflow-hidden"
+      className="relative py-24 bg-black overflow-hidden mt-20"
     >
-  
-      
-
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
         
-        {/* HEADER - Updated Font Styles */}
+        {/* HEADER */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -79,19 +90,20 @@ const WhyChooseUs = () => {
           </span>
 
           <h2 className="font-serif text-4xl md:text-6xl font-bold text-white leading-tight mb-6">
-            Excellence In
+            Excellence Built
             <br />
-            <span className="text-[#D9AF58]">Every Detail</span>
+            <span className="text-[#D9AF58]">On Trust</span>
           </h2>
 
           <p className="max-w-2xl mx-auto text-white/50 text-base leading-relaxed font-sans">
-            Timeless architecture and premium interiors crafted
-            with innovation, precision, and luxury aesthetics.
+            Rare Roman Antiques is built on a foundation of authenticity, integrity, 
+            and a deep respect for history. Every artifact we handle is treated with 
+            professionalism and care.
           </p>
         </motion.div>
 
-        {/* SMALLER CARDS - Updated Font Styles */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Cards Grid - 4 columns on large screens */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {features.map((item, index) => {
             const Icon = item.icon;
 
@@ -102,7 +114,7 @@ const WhyChooseUs = () => {
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{
                   duration: 0.6,
-                  delay: index * 0.1,
+                  delay: index * 0.08,
                 }}
                 className="group"
               >
@@ -119,7 +131,7 @@ const WhyChooseUs = () => {
                   </div>
 
                   {/* Content */}
-                  <h3 className="font-serif text-2xl font-bold text-white mb-4">
+                  <h3 className="font-serif text-lg font-bold text-white mb-3 leading-tight">
                     {item.title}
                   </h3>
 
@@ -141,9 +153,16 @@ const WhyChooseUs = () => {
           })}
         </div>
 
+        {/* Brand Signature */}
+        <div className="text-center mt-16">
+          <p className="text-white/20 text-[10px] tracking-[0.3em] uppercase font-mono">
+            Rudra x Romulus — Rare Antiques International
+          </p>
+        </div>
+
       </div>
     </section>
   );
 };
-
+ 
 export default WhyChooseUs;

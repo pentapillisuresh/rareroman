@@ -3,44 +3,93 @@ import { motion, useInView } from 'framer-motion';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Link } from 'react-router-dom';
-import { Building2, Sofa, Hammer, Compass, ArrowRight, CheckCircle } from 'lucide-react';
+import { 
+  ArrowRight, 
+  CheckCircle, 
+  Coins, 
+  Gem, 
+  Shield, 
+  Award, 
+  Handshake, 
+  TrendingUp, 
+  Users,
+  Diamond,
+  Medal,
+  Sparkles
+} from 'lucide-react';
 
 const services = [
   {
-    icon: Building2,
+    icon: Coins,
     number: '01',
-    title: 'Architecture',
-    subtitle: 'Visionary Structures',
-    desc: 'From concept to completion, we craft buildings that stand as testaments to human ingenuity and aesthetic vision. Our architectural services encompass residential, commercial, and mixed-use developments.',
-    features: ['Concept Development', 'Schematic Design', 'Construction Documents', 'Project Management', 'Site Supervision'],
-    image: './images/arc.avif',
+    title: 'Buying Antique Metals & Collectibles',
+    subtitle: 'Acquisition Services',
+    desc: 'We purchase valuable antique metals, historical metal objects, vintage collectibles, and heritage artifacts with cultural or historical significance.',
+    features: ['Historical Metal Objects', 'Vintage Collectibles', 'Heritage Artifacts', 'Cultural Significance', 'Fair Market Pricing'],
+    image: 'https://images.unsplash.com/photo-1617038220319-276d3cfab638?w=600&h=400&fit=crop',
   },
   {
-    icon: Sofa,
+    icon: Shield,
     number: '02',
-    title: 'Interiors',
-    subtitle: 'Spatial Poetry',
-    desc: 'Transforming interiors into living works of art. Every material, texture, and light source is considered with intention to create spaces that are both beautiful and deeply functional.',
-    features: ['Space Planning', 'Material Selection', 'Furniture Curation', 'Lighting Design', 'Art & Accessories'],
-    image: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=600&h=400&fit=crop',
+    title: 'Selling Authenticated Rare Items',
+    subtitle: 'Sales & Trading',
+    desc: 'We help clients sell authenticated rare items, antique metals, and collectibles through our extensive network of collectors, investors, and institutions.',
+    features: ['Authenticated Items', 'Global Buyer Network', 'Competitive Pricing', 'Professional Handling', 'Confidential Transactions'],
+    image: 'https://images.unsplash.com/photo-1582896703535-62ef6a3c1a93?w=600&h=400&fit=crop',
   },
   {
-    icon: Hammer,
+    icon: Diamond,
     number: '03',
-    title: 'Renovation',
-    subtitle: 'Adaptive Reuse',
-    desc: 'Breathing new life into existing structures while preserving their character. We specialize in sensitive renovations that honor architectural heritage while meeting contemporary needs.',
-    features: ['Structural Assessment', 'Heritage Preservation', 'Modern Integration', 'Material Matching', 'Phased Delivery'],
-    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&h=400&fit=crop',
+    title: 'Diamond Sourcing & Trading',
+    subtitle: 'Certified Natural Diamonds',
+    desc: 'We buy and sell certified natural diamonds, loose diamonds, and selected diamond jewelry, ensuring quality, authenticity, and ethical sourcing.',
+    features: ['Certified Natural Diamonds', 'Loose Diamonds', 'Diamond Jewelry', 'Quality Assurance', 'Ethical Sourcing'],
+    image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&h=400&fit=crop',
   },
   {
-    icon: Compass,
+    icon: Gem,
     number: '04',
-    title: 'Consulting',
-    subtitle: 'Expert Guidance',
-    desc: 'Expert guidance at every stage of your project. Whether you need a second opinion or comprehensive strategic advice, our consultants bring decades of experience to your vision.',
-    features: ['Brief Development', 'Contractor Selection', 'Budget Advisory', 'Quality Review', 'Post-Occupancy'],
-    image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&h=400&fit=crop',
+    title: 'Rare Metal Procurement',
+    subtitle: 'High-Value Metals',
+    desc: 'We source and trade rare and high-value metals used for investment, industrial applications, and specialized collections with verified authenticity.',
+    features: ['High-Value Metals', 'Investment Grade', 'Industrial Applications', 'Specialized Collections', 'Verified Authenticity'],
+    image: 'https://images.unsplash.com/photo-1617038220319-276d3cfab638?w=600&h=400&fit=crop&sat=-20',
+  },
+  {
+    icon: Award,
+    number: '05',
+    title: 'Item Authentication & Evaluation',
+    subtitle: 'Expert Verification',
+    desc: 'Our experts provide professional authentication and evaluation services for antique metals, rare items, and collectibles to ensure their authenticity and value.',
+    features: ['Professional Authentication', 'Expert Evaluation', 'Provenance Verification', 'Condition Assessment', 'Detailed Reports'],
+    image: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=600&h=400&fit=crop',
+  },
+  {
+    icon: TrendingUp,
+    number: '06',
+    title: 'Market Value Assessment',
+    subtitle: 'Valuation Services',
+    desc: 'We provide accurate market value assessments based on current demand, rarity, historical significance, and international market trends.',
+    features: ['Current Market Analysis', 'Rarity Assessment', 'Historical Significance', 'International Trends', 'Fair Valuations'],
+    image: 'https://images.unsplash.com/photo-1582896703535-62ef6a3c1a93?w=600&h=400&fit=crop&brightness=0.7',
+  },
+  {
+    icon: Users,
+    number: '07',
+    title: 'Private Collector Services',
+    subtitle: 'Personalized Support',
+    desc: 'We offer dedicated private collector services including acquisition assistance, portfolio management, and personalized guidance for building exceptional collections.',
+    features: ['Acquisition Assistance', 'Portfolio Management', 'Personalized Guidance', 'Curated Collections', 'Expert Advice'],
+    image: 'https://images.unsplash.com/photo-1518546305927-5a555bb7020d?w=600&h=400&fit=crop',
+  },
+  {
+    icon: Handshake,
+    number: '08',
+    title: 'Secure Transactions with Confidentiality',
+    subtitle: 'Trusted & Transparent',
+    desc: 'All transactions are handled with the highest level of professionalism, security, and confidentiality to ensure a seamless and trustworthy experience.',
+    features: ['Secure Transactions', 'Complete Confidentiality', 'Professional Handling', 'Transparent Process', 'Peace of Mind'],
+    image: 'https://images.unsplash.com/photo-1605568427561-40dd23c4ecc8?w=600&h=400&fit=crop&brightness=0.6',
   },
 ];
 
@@ -51,25 +100,25 @@ export default function Services() {
   return (
     <>
       <Header />
-      <main className="bg-black min-h-screen">
-        {/* Hero Section with banner image */}
-        <section className="relative pt-40 pb-24 overflow-hidden">
+      <main className="bg-black min-h-screen pt-20">
+        {/* Hero Section */}
+        <section className="relative pt-32 pb-32 overflow-hidden">
           <div className="absolute inset-0">
             <img
-              src="https://images.unsplash.com/photo-1497366412874-3415097a27e7?w=1920&h=600&fit=crop"
-              alt="Archaidplus Architects Services"
+              src="https://images.unsplash.com/photo-1582896703535-62ef6a3c1a93?w=1920&h=800&fit=crop"
+              alt="Rare Roman Antiques - Services"
               width={1920}
-              height={600}
-              className="w-full h-full object-cover opacity-100"
+              height={800}
+              className="w-full h-full object-cover object-center"
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/90" />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/90" />
           </div>
-          <div className="relative max-w-4xl mx-auto px-6 lg:px-8 text-center">
+          <div className="relative max-w-4xl mx-auto px-6 lg:px-8 text-center z-10">
             <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-              <span className="text-[#D9AF58] text-xs font-medium tracking-[0.3em] uppercase mb-4 block">What We Offer</span>
-              <h1 className="font-serif text-5xl md:text-6xl font-bold text-white mb-6">Our Services</h1>
+              <span className="text-[#D9AF58] text-xs font-medium tracking-[0.3em] uppercase mb-4 block">Our Services</span>
+              <h1 className="font-serif text-5xl md:text-6xl font-bold text-white mb-6">Services We Offer</h1>
               <p className="text-white/80 text-lg leading-relaxed max-w-2xl mx-auto">
-                Comprehensive design solutions tailored to your vision, budget, and timeline.
+                Specializing in buying, selling, authenticating, and trading antique metals, rare metals, diamonds, and valuable collectibles.
               </p>
             </motion.div>
           </div>
@@ -150,23 +199,24 @@ export default function Services() {
             className="mt-24 p-12 rounded-2xl border border-[#D9AF58]/20 bg-gradient-to-br from-black to-[#D9AF58]/5 text-center"
           >
             <h2 className="font-serif text-3xl md:text-4xl font-bold text-white mb-4">
-              Ready to Start Your Project?
+              Ready to Get Started?
             </h2>
             <p className="text-white/60 max-w-2xl mx-auto mb-8">
-              Let's discuss your vision and turn it into reality. Our team of experts is ready to guide you through every step.
+              Whether you're looking to buy, sell, authenticate, or evaluate valuable items, our team of experts 
+              is ready to assist you with personalized service and professional guidance.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                to="/portfolio"
+                to="/contact"
                 className="inline-flex items-center justify-center gap-2 bg-[#D9AF58] text-black px-6 py-3 rounded-lg font-semibold hover:bg-[#D9AF58]/90 transition-all duration-200"
               >
-                View Our Portfolio
+                Get In Touch Today
               </Link>
               <Link
-                to="/contact"
+                to="/"
                 className="inline-flex items-center justify-center gap-2 border border-[#D9AF58]/40 text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition-all duration-200"
               >
-                Schedule a Consultation
+                Explore Our Collection
               </Link>
             </div>
           </motion.div>

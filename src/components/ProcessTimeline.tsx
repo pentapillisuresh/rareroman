@@ -1,13 +1,13 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Search, PenTool, Layers, Hammer, CheckCircle } from 'lucide-react';
+import { Send, Search, Shield, Gem, Handshake } from 'lucide-react';
 
 const steps = [
-  { icon: Search, step: '01', title: 'Discovery', desc: 'In-depth consultation to understand your vision.' },
-  { icon: PenTool, step: '02', title: 'Concept', desc: 'Initial concepts and mood boards for layouts.' },
-  { icon: Layers, step: '03', title: 'Development', desc: 'Refined drawings and 3D visualizations.' },
-  { icon: Hammer, step: '04', title: 'Build', desc: 'Precision craftsmanship by our expert team.' },
-  { icon: CheckCircle, step: '05', title: 'Handover', desc: 'Final walkthrough and styling of the space.' },
+  { icon: Send, step: '01', title: 'Contact Us', desc: 'Share details and photographs of your item.' },
+  { icon: Search, step: '02', title: 'Initial Assessment', desc: 'Our experts review the information and determine the item\'s potential value.' },
+  { icon: Shield, step: '03', title: 'Authentication', desc: 'The item is carefully inspected for authenticity and condition.' },
+  { icon: Gem, step: '04', title: 'Valuation', desc: 'We provide a fair market valuation based on current demand, rarity, and historical significance.' },
+  { icon: Handshake, step: '05', title: 'Secure Transaction', desc: 'Once both parties agree, the purchase or sale is completed through a secure and transparent process.' },
 ];
 
 const useTypewriter = (text: string, speed: number = 20, delay: number = 0) => {
@@ -52,32 +52,26 @@ const AlternatingTimeline = () => {
   }, [isInView]);
 
   return (
-    <section ref={containerRef} className="py-40 bg-black overflow-hidden">
+    <section ref={containerRef} className="py-40 bg-black overflow-hidden mt-20">
       <div className="max-w-7xl mx-auto px-6">
         
-        {/* Title and Subtitle Section */}
+        {/* Title and Subtitle Section - Same style as Services/About */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7 }}
-          className="text-center mb-20"
+          transition={{ duration: 0.8 }}
+          className="text-center max-w-3xl mx-auto mb-20"
         >
-          <div className="flex items-center justify-center gap-3 mb-6">
-            <div className="w-8 h-px bg-[#D9AF58]" />
-            <span className="text-[#D9AF58] text-xs font-mono tracking-[0.2em] uppercase">
-              Our Process
-            </span>
-            <div className="w-8 h-px bg-[#D9AF58]" />
-          </div>
+          <span className="text-[#D9AF58] uppercase tracking-[0.35em] text-xs font-mono font-semibold block mb-5">
+            Our Process
+          </span>
           
-          <h2 className="font-serif text-5xl md:text-6xl font-bold text-white leading-tight mb-6">
+          <h2 className="font-serif text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
             How We Work
           </h2>
           
-          <div className="w-20 h-px bg-[#D9AF58] mx-auto mb-6" />
-          
-          <p className="text-white/50 max-w-xl mx-auto font-sans">
-            A seamless journey from concept to completion, ensuring excellence at every step.
+          <p className="text-white/50 text-base leading-relaxed font-sans">
+            A seamless journey from discovery to secure acquisition, ensuring authenticity and trust at every step.
           </p>
         </motion.div>
         
@@ -164,6 +158,13 @@ const AlternatingTimeline = () => {
               );
             })}
           </div>
+        </div>
+
+        {/* Brand Signature */}
+        <div className="text-center mt-16">
+          <p className="text-white/20 text-[10px] tracking-[0.3em] uppercase font-mono">
+            Rudra x Romulus — Rare Antiques International
+          </p>
         </div>
       </div>
     </section>

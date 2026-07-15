@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { toast } from 'react-toastify';
-import { Mail, Phone, MapPin, Send, Clock, Building2 } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Clock, Building2, Globe } from 'lucide-react';
 
 const schema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
@@ -25,7 +25,7 @@ const ContactSection = () => {
 
   const onSubmit = async (data: FormData) => {
     try {
-      const response = await fetch('https://formsubmit.co/Archaidplus@gmail.com', {
+      const response = await fetch('https://formsubmit.co/rareromanantiques@gmail.com', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -35,7 +35,7 @@ const ContactSection = () => {
           message: data.message,
           _captcha: 'false',
           _template: 'table',
-          _subject: 'New Website Enquiry',
+          _subject: 'New Enquiry from Rare Roman Antiques',
         }),
       });
 
@@ -51,7 +51,7 @@ const ContactSection = () => {
   };
 
   return (
-    <section ref={ref} className="relative py-24 bg-black overflow-hidden" id="contact">
+    <section ref={ref} className="relative py-24 bg-black overflow-hidden mt-20" id="contact">
       {/* Premium Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Grid Pattern */}
@@ -74,73 +74,90 @@ const ContactSection = () => {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
-        {/* Header Section */}
+        {/* Header Section - Same style as other sections */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.8 }}
+          className="text-center max-w-3xl mx-auto mb-16"
         >
-          <div className="flex items-center justify-center gap-3 mb-6">
-            <div className="w-8 h-px bg-[#D9AF58]" />
-            <span className="text-[#D9AF58] text-xs font-mono tracking-[0.2em] uppercase">
-              Get In Touch
-            </span>
-            <div className="w-8 h-px bg-[#D9AF58]" />
-          </div>
+          <span className="text-[#D9AF58] uppercase tracking-[0.35em] text-xs font-mono font-semibold block mb-5">
+            Get In Touch
+          </span>
           
-          <h2 className="font-serif text-5xl md:text-6xl font-bold text-white leading-tight mb-6">
-            Let's Talk
+          <h2 className="font-serif text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
+            Connect With Our Experts
           </h2>
           
-          <div className="w-20 h-px bg-[#D9AF58] mx-auto mb-6" />
-          
-          <p className="text-white/50 max-w-xl mx-auto font-sans">
-            Have a project in mind? We'd love to hear about it. Send us a message and we'll get back to you within 24 hours.
+          <p className="text-white/50 text-base leading-relaxed font-sans">
+            Have a rare artifact to sell or looking for a specific piece? Contact us today.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
-          {/* Contact Info - Left Side (Real details) */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+          {/* Contact Info - Left Side */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="lg:col-span-2 space-y-5"
+            className="space-y-5"
           >
-            {/* Main Office - Vizag */}
+            {/* Main Office - Alaska */}
             <div className="group p-6 rounded-2xl border border-white/10 bg-white/[0.03] hover:border-[#D9AF58]/40 transition-all duration-500 hover:-translate-y-1">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-[#D9AF58]/10 border border-[#D9AF58]/20 flex items-center justify-center shrink-0 group-hover:bg-[#D9AF58]/20 transition-all duration-300">
-                  <Building2 className="w-5 h-5 text-[#D9AF58]" />
+                <div className="w-10 h-10 rounded-xl bg-[#D9AF58]/10 border border-[#D9AF58]/20 flex items-center justify-center shrink-0 group-hover:bg-[#D9AF58]/20 transition-all duration-300">
+                  <Building2 className="w-4 h-4 text-[#D9AF58]" />
                 </div>
                 <div className="flex-1">
-                  <div className="text-[#D9AF58] text-[10px] font-mono tracking-wider uppercase mb-1">Main Office</div>
+                  <div className="text-[#D9AF58] text-[10px] font-mono tracking-wider uppercase mb-1">Headquarters</div>
                   <div className="text-white text-sm leading-relaxed">
-                   Kolkata 700019, West Bengal<br />
-                    
+                    Russian American Company<br />
+                    134 Lincoln Street<br />
+                    Sitka, Alaska 99835
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Contact Cards with real info */}
-            {[
-              { icon: MapPin, label: 'Visit Us', value: 'Visakhapatnam, Andhra Pradesh\nIndia - 530016' },
-              { icon: Phone, label: 'Call Us', value: '+91 90736 51933' },
-              { icon: Mail, label: 'Email Us', value: 'Archaidplus@gmail.com' },
-              { icon: Clock, label: 'Working Hours', value: 'Mon - Fri: 9:00 AM - 6:00 PM\nSat: 10:00 AM - 2:00 PM' },
-            ].map(({ icon: Icon, label, value }) => (
-              <div key={label} className="group flex items-start gap-4 p-5 rounded-2xl border border-white/10 bg-white/[0.03] hover:border-[#D9AF58]/40 transition-all duration-300 hover:-translate-y-0.5">
-                <div className="w-10 h-10 rounded-xl bg-[#D9AF58]/10 border border-[#D9AF58]/20 flex items-center justify-center shrink-0 group-hover:bg-[#D9AF58]/20 transition-all duration-300">
-                  <Icon className="w-4 h-4 text-[#D9AF58]" />
+            {/* Contact Info Cards - 2 columns */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {[
+                { icon: Phone, label: 'Toll Free', value: '1-800-742-62119' },
+                { icon: Phone, label: 'Local', value: '+1 907-747-6119' },
+                { icon: Mail, label: 'Email Us', value: 'rareromanantiques@gmail.com' },
+                { icon: Clock, label: 'Working Hours', value: 'Mon - Fri: 9AM - 6PM AST' },
+              ].map(({ icon: Icon, label, value }) => (
+                <div key={label} className="group flex items-start gap-4 p-4 rounded-2xl border border-white/10 bg-white/[0.03] hover:border-[#D9AF58]/40 transition-all duration-300 hover:-translate-y-0.5">
+                  <div className="w-10 h-10 rounded-xl bg-[#D9AF58]/10 border border-[#D9AF58]/20 flex items-center justify-center shrink-0 group-hover:bg-[#D9AF58]/20 transition-all duration-300">
+                    <Icon className="w-4 h-4 text-[#D9AF58]" />
+                  </div>
+                  <div className="min-w-0">
+                    <div className="text-white/40 text-[10px] font-mono tracking-wider uppercase mb-0.5">{label}</div>
+                    <div className="text-white text-sm break-words">{value}</div>
+                  </div>
                 </div>
-                <div>
-                  <div className="text-white/40 text-[10px] font-mono tracking-wider uppercase mb-1">{label}</div>
-                  <div className="text-white text-sm whitespace-pre-line">{value}</div>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
+
+            {/* Map Link */}
+            <a 
+              href="https://www.google.com/maps/search/?api=1&query=134+Lincoln+Street+Sitka+Alaska+99835"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center justify-center gap-3 p-4 rounded-2xl border border-white/10 bg-white/[0.03] hover:border-[#D9AF58]/40 transition-all duration-300 hover:-translate-y-0.5"
+            >
+              <MapPin className="w-4 h-4 text-[#D9AF58]" />
+              <span className="text-white/60 text-sm group-hover:text-white transition-colors">
+                View on Google Maps →
+              </span>
+            </a>
+
+            {/* Brand Signature */}
+            <div className="pt-4">
+              <p className="text-white/20 text-[10px] tracking-[0.3em] uppercase font-mono text-center">
+                Rudra x Romulus — Rare Antiques International
+              </p>
+            </div>
           </motion.div>
 
           {/* Contact Form - Right Side */}
@@ -148,9 +165,8 @@ const ContactSection = () => {
             initial={{ opacity: 0, x: 30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="lg:col-span-3"
           >
-            <form onSubmit={handleSubmit(onSubmit)} className="p-8 rounded-2xl border border-white/10 bg-white/[0.03] space-y-6">
+            <form onSubmit={handleSubmit(onSubmit)} className="p-8 rounded-2xl border border-white/10 bg-white/[0.03] space-y-6 h-full">
               {/* Form Header */}
               <div className="text-center pb-4 border-b border-white/10">
                 <h3 className="font-serif text-2xl font-bold text-white mb-1">Send us a Message</h3>
@@ -186,17 +202,42 @@ const ContactSection = () => {
                 <select
                   id="service"
                   {...register('service')}
-                  className="w-full px-4 py-2.5 rounded-xl border border-white/10 bg-black/40 text-white text-sm focus:outline-none focus:ring-2 focus:ring-[#D9AF58]/50 focus:border-[#D9AF58]/50 transition-all duration-200"
+                  className="w-full px-4 py-2.5 rounded-xl border border-white/10 text-white text-sm transition-all duration-200"
+                  style={{ 
+                    backgroundColor: '#000000',
+                    color: '#ffffff',
+                  }}
                 >
-                  <option value="">Select a service...</option>
-                  <option value="architecture">Architecture Design</option>
-                  <option value="interior">Interior Design</option>
-                  <option value="renovation">Renovation & Remodel</option>
-                  <option value="consulting">Design Consulting</option>
-                  <option value="visualization">3D Visualization</option>
+                  <option value="" style={{ backgroundColor: '#000000', color: 'rgba(255,255,255,0.6)' }}>Select a service...</option>
+                  <option value="buying" style={{ backgroundColor: '#000000', color: '#ffffff' }}>Buying Artifacts</option>
+                  <option value="selling" style={{ backgroundColor: '#000000', color: '#ffffff' }}>Selling Artifacts</option>
+                  <option value="valuation" style={{ backgroundColor: '#000000', color: '#ffffff' }}>Authentication & Valuation</option>
+                  <option value="collection" style={{ backgroundColor: '#000000', color: '#ffffff' }}>Private Collection</option>
+                  <option value="museum" style={{ backgroundColor: '#000000', color: '#ffffff' }}>Museum Acquisition</option>
+                  <option value="investment" style={{ backgroundColor: '#000000', color: '#ffffff' }}>Investment Consultation</option>
                 </select>
                 {errors.service && <p className="text-red-400 text-xs mt-1">{errors.service.message}</p>}
               </div>
+
+              <style>{`
+                select:focus {
+                  outline: none !important;
+                  ring: 2px solid #D9AF58 !important;
+                  border-color: #D9AF58 !important;
+                  box-shadow: 0 0 0 2px rgba(217, 175, 88, 0.5) !important;
+                }
+                select option {
+                  background-color: #000000 !important;
+                  color: #ffffff !important;
+                }
+                select option:checked {
+                  background-color: #D9AF58 !important;
+                  color: #000000 !important;
+                }
+                select:hover {
+                  border-color: rgba(217, 175, 88, 0.5) !important;
+                }
+              `}</style>
 
               <div>
                 <label htmlFor="message" className="block text-white/60 text-xs font-mono tracking-wider uppercase mb-2">Your Message</label>
@@ -204,7 +245,7 @@ const ContactSection = () => {
                   id="message"
                   {...register('message')}
                   rows={4}
-                  placeholder="Tell us about your project..."
+                  placeholder="Tell us about the artifact you're interested in or looking to sell..."
                   className="w-full px-4 py-2.5 rounded-xl border border-white/10 bg-white/5 text-white text-sm placeholder-white/20 focus:outline-none focus:ring-2 focus:ring-[#D9AF58]/50 focus:border-[#D9AF58]/50 transition-all duration-200 resize-none"
                 />
                 {errors.message && <p className="text-red-400 text-xs mt-1">{errors.message.message}</p>}

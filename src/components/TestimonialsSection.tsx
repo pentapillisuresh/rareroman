@@ -4,28 +4,36 @@ import { ChevronLeft, ChevronRight, Star, Quote } from 'lucide-react';
 
 const testimonials = [
   {
-    name: 'Alexandra Chen',
-    role: 'CEO, Luminary Group',
-    avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face',
-    quote: 'archaidplus transformed our headquarters into a space that perfectly embodies our brand. The attention to detail and the seamless process made this one of the best investments we\'ve ever made.',
+    name: 'Dr. James Anderson',
+    role: 'Director, Smithsonian Institute',
+    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=face',
+    quote: 'The authentication and quality of Roman artifacts from Rare Roman Antiques is exceptional. We have acquired several pieces for our museum collection, and each one has been meticulously verified and historically documented.',
     rating: 5,
-    project: 'Corporate HQ Redesign',
+    project: 'Museum Acquisition - Smithsonian',
   },
   {
-    name: 'Marcus Williams',
-    role: 'Private Client',
-    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face',
-    quote: 'Our penthouse renovation exceeded every expectation. The team\'s ability to blend modern luxury with warmth and livability is truly unmatched. We\'ve received countless compliments.',
+    name: 'Victoria Chen',
+    role: 'Private Collector & Investor',
+    avatar: 'https://images.unsplash.com/photo-1494790108372-be9c29b29330?w=200&h=200&fit=crop&crop=face',
+    quote: 'As a collector of ancient coins for over 20 years, I can confidently say that Rare Roman Antiques offers some of the finest authenticated pieces I have ever encountered. Their expertise and professionalism are unmatched.',
     rating: 5,
-    project: 'Penthouse Renovation',
+    project: 'Roman Coins Collection - Private',
   },
   {
-    name: 'Sophia Laurent',
-    role: 'Hotel Director, The Maison',
-    avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face',
-    quote: 'Working with archaidplus on our boutique hotel was an extraordinary experience. They understood our vision immediately and delivered a space that our guests consistently describe as magical.',
+    name: 'Marcus Aurelius',
+    role: 'Head Curator, European Heritage Museum',
+    avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop&crop=face',
+    quote: 'We regularly source rare Roman artifacts from Rare Roman Antiques for our exhibitions. Their ability to provide detailed provenance and historical context sets them apart from other dealers in the industry.',
     rating: 5,
-    project: 'Boutique Hotel Design',
+    project: 'Ancient Rome Exhibition - European Museum',
+  },
+  {
+    name: 'Sarah Mitchell',
+    role: 'Investment Advisor, Heritage Wealth',
+    avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop&crop=face',
+    quote: 'The valuation and authenticity verification services provided by Rare Roman Antiques have been instrumental in building our clients\' rare metal and artifact portfolios. Their market insights are invaluable.',
+    rating: 5,
+    project: 'Rare Metals & Artifacts Portfolio',
   },
 ];
 
@@ -38,7 +46,7 @@ const TestimonialsSection = () => {
   const next = () => setCurrent((c) => (c + 1) % testimonials.length);
 
   return (
-    <section ref={ref} className="relative py-28 bg-black overflow-hidden">
+    <section ref={ref} className="relative py-28 bg-black overflow-hidden mt-20">
       {/* Premium Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Grid Pattern */}
@@ -75,31 +83,23 @@ const TestimonialsSection = () => {
       </div>
 
       <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-8">
-        {/* Header Section */}
+        {/* Header Section - Same style as Services/About/Process */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7 }}
-          className="text-center mb-20"
+          transition={{ duration: 0.8 }}
+          className="text-center max-w-3xl mx-auto mb-20"
         >
-          <div className="flex items-center justify-center gap-3 mb-6">
-            <div className="w-8 h-px bg-[#D9AF58]" />
-            <span className="text-[#D9AF58] text-xs font-mono tracking-[0.2em] uppercase">
-              Testimonials
-            </span>
-            <div className="w-8 h-px bg-[#D9AF58]" />
-          </div>
+          <span className="text-[#D9AF58] uppercase tracking-[0.35em] text-xs font-mono font-semibold block mb-5">
+            Testimonials
+          </span>
           
-          <h2 className="font-serif text-5xl md:text-6xl lg:text-5xl font-bold text-white leading-tight mb-6">
-            What Our
-            <br />
-            <span className="text-[#D9AF58]">Clients Say</span>
+          <h2 className="font-serif text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
+            What Our <span className="text-[#D9AF58]">Collectors Say</span>
           </h2>
           
-          <div className="w-20 h-px bg-[#D9AF58] mx-auto mb-6" />
-          
-          <p className="text-white/50 max-w-2xl mx-auto font-sans">
-            Trusted by leading brands and discerning clients worldwide
+          <p className="text-white/50 text-base leading-relaxed font-sans">
+            Trusted by collectors, museums, and investors worldwide for authentic Roman antiquities
           </p>
         </motion.div>
 
@@ -112,7 +112,7 @@ const TestimonialsSection = () => {
         >
           <div className="relative p-10 md:p-14 rounded-3xl bg-white/[0.03] border border-white/10 backdrop-blur-sm overflow-hidden shadow-2xl">
             {/* Premium Decorative Elements */}
-            <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#D9AF58]/50 to-transparent" />
+            <div className="absolute top-0 left-0 w-full h-[1px] bg-[#D9AF58]/20" />
             
             {/* Quote Icon Background */}
             <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-[#D9AF58]/5 blur-2xl" />
@@ -225,8 +225,6 @@ const TestimonialsSection = () => {
             </button>
           </div>
         </motion.div>
-
-      
       </div>
     </section>
   );

@@ -1,257 +1,194 @@
-import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { useState } from "react";
 
-const projects = [
+const collections = [
   {
-    title: "Modern Living Room",
-    category: "Residential",
-    type: "Single Home",
+    id: 1,
+    title: "ROMAN COINS",
     image:
-      "/images/project1.png",
-    progress: "42%",
+      "./images/service1.png",
   },
   {
-    title: "Minimal Staircase",
-    category: "Residential",
-    type: "Single Home",
+    id: 2,
+    title: "RARE DIAMONDS",
     image:
-      "./images/project2.png",
-    progress: "28%",
+      "./images/service2.png",
   },
   {
-    title: "Luxury Interior",
-    category: "Residential",
-    type: "Single Home",
+    id: 3,
+    title: "ANCIENT CRAFTS",
     image:
-      "./images/project3.png",
-    progress: "35%",
+      "./images/service4.png",
+  },
+  {
+    id: 4,
+    title: "RARE METALS",
+    image:
+      "./images/service3.png",
   },
 ];
 
-const FeaturedProjects = () => {
-  const ref = useRef(null);
-
-  const inView = useInView(ref, {
-    once: true,
-    margin: "-100px",
-  });
+export default function ExploreCollections() {
+  const [active, setActive] = useState(2);
 
   return (
-    <section
-      ref={ref}
-      className="relative py-20 bg-black overflow-hidden"
-    >
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-[0.02] bg-[url('https://www.transparenttextures.com/patterns/graphy.png')]" />
-
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+    <section className="bg-black py-24">
+      <div className="max-w-7xl mx-auto px-6">
         {/* Heading */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center max-w-3xl mx-auto mb-16"
-        >
-          <span className="text-[#D9AF58] uppercase tracking-[0.35em] text-xs font-mono font-semibold block mb-5">
-            Portfolio
+
+        <div className="text-center mb-16">
+          <span className="uppercase tracking-[6px] text-[#D9AF58] text-sm font-mono font-semibold">
+            OUR COLLECTION
           </span>
 
-          <h2 className="font-serif text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
-            Bringing Interior
-            <br />
-            <span className="text-[#D9AF58]">Designs To Life</span>
+          <h2 className="mt-4 text-5xl font-bold text-white font-serif">
+            Rare Roman Antiquities
           </h2>
 
-          <p className="text-white/50 text-base leading-relaxed font-sans">
-            Our portfolio showcases a diverse range of projects,
-            from beautifully crafted residential spaces to
-            functional and stylish commercial interiors.
+          <p className="text-white/60 mt-5 max-w-3xl mx-auto font-sans">
+            Discover authentic Roman antiquities, rare coins, precious
+            diamonds, ancient artifacts and collectible metals curated from
+            historical collections around the world.
           </p>
-        </motion.div>
+        </div>
 
-        {/* Masonry Layout - Equal Heights */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
-          {/* First Card - Left */}
-          <motion.div
-            initial={{ opacity: 0, y: 60 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{
-              duration: 0.8,
-              delay: 0,
-            }}
-            className="group relative overflow-hidden rounded-2xl cursor-pointer md:mt-0"
-          >
-            {/* Image Container - Equal Height */}
-            <div className="relative overflow-hidden h-[480px]">
-              <img
-                src={projects[0].image}
-                alt={projects[0].title}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[2000ms]"
-              />
+        {/* Gallery */}
 
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+        <div className="flex gap-4 h-[480px]">
 
-              {/* Hover Overlay */}
-              <div className="absolute inset-0 bg-[#D9AF58]/0 group-hover:bg-[#D9AF58]/10 transition-all duration-500" />
-            </div>
+          {collections.map((item) => {
 
-            {/* Top Tags */}
-            <div className="absolute top-4 left-4 flex gap-2">
-              <span className="px-3 py-1.5 rounded-full border border-white/40 bg-black/50 backdrop-blur-md text-white text-[10px] font-mono font-semibold uppercase tracking-wider">
-                {projects[0].category}
-              </span>
+            const isActive = active === item.id;
 
-              <span className="px-3 py-1.5 rounded-full border border-white/40 bg-black/50 backdrop-blur-md text-white text-[10px] font-mono font-semibold uppercase tracking-wider">
-                {projects[0].type}
-              </span>
-            </div>
+            return (
 
-            {/* Bottom Content */}
-            <div className="absolute bottom-0 left-0 right-0 p-6">
-              <div className="flex items-end justify-between">
-                <div>
-                  <h3 className="font-serif text-2xl font-bold text-white mb-1">
-                    {projects[0].title}
-                  </h3>
+              <div
+                key={item.id}
+                onMouseEnter={() => setActive(item.id)}
+                className={`
+                  relative
+                  overflow-hidden
+                  rounded-3xl
+                  cursor-pointer
+                  transition-all
+                  duration-700
+                  ease-in-out
+                  ${
+                    isActive
+                      ? "flex-[7]"
+                      : "flex-1"
+                  }
+                `}
+              >
+                {/* Image */}
 
-                  <p className="text-white/60 text-xs font-sans">
-                    Premium Interior Design
-                  </p>
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className={`
+                    absolute
+                    inset-0
+                    w-full
+                    h-full
+                    object-cover
+                    transition-all
+                    duration-700
+                    ${
+                      isActive
+                        ? "scale-100"
+                        : "scale-110"
+                    }
+                  `}
+                />
+
+                {/* Overlay */}
+
+                <div className="absolute inset-0 bg-black/45" />
+
+                {/* Active Content */}
+
+                <div
+                  className="absolute inset-0 flex items-center justify-center"
+                  style={{
+                    opacity: isActive ? 1 : 0,
+                    transform: isActive
+                      ? "perspective(1000px) rotateY(0deg)"
+                      : "perspective(1000px) rotateY(90deg)",
+                    transition:
+                      "transform .8s cubic-bezier(.22,1,.36,1), opacity .6s ease",
+                    transformStyle: "preserve-3d",
+                    backfaceVisibility: "hidden",
+                  }}
+                >
+                  <div className="text-center">
+                    <h2 className="text-white text-5xl md:text-6xl font-bold tracking-[8px] uppercase drop-shadow-2xl font-serif">
+                      {item.title}
+                    </h2>
+
+                    <div className="w-24 h-[2px] bg-[#D9AF58] mx-auto mt-6" />
+
+                    <p className="text-white/80 uppercase tracking-[5px] mt-5 text-sm font-mono">
+                      Rare Roman Collection
+                    </p>
+                  </div>
                 </div>
 
-               
-              </div>
-            </div>
+                {/* Vertical Text */}
 
-            {/* Hover Button */}
-            <div className="absolute top-4 right-4 w-10 h-10 rounded-full bg-black/50 backdrop-blur-xl border border-white/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 hover:bg-[#D9AF58] hover:border-[#D9AF58] group-hover:scale-110">
-              <ArrowUpRight className="w-4 h-4 text-white group-hover:text-black transition-colors duration-300" />
-            </div>
-          </motion.div>
-
-          {/* Second Card - Middle (More Down) */}
-          <motion.div
-            initial={{ opacity: 0, y: 60 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{
-              duration: 0.8,
-              delay: 0.15,
-            }}
-            className="group relative overflow-hidden rounded-2xl cursor-pointer md:mt-16"
-          >
-            {/* Image Container - Equal Height */}
-            <div className="relative overflow-hidden h-[480px]">
-              <img
-                src={projects[1].image}
-                alt={projects[1].title}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[2000ms]"
-              />
-
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-
-              {/* Hover Overlay */}
-              <div className="absolute inset-0 bg-[#D9AF58]/0 group-hover:bg-[#D9AF58]/10 transition-all duration-500" />
-            </div>
-
-            {/* Top Tags */}
-            <div className="absolute top-4 left-4 flex gap-2">
-              <span className="px-3 py-1.5 rounded-full border border-white/40 bg-black/50 backdrop-blur-md text-white text-[10px] font-mono font-semibold uppercase tracking-wider">
-                {projects[1].category}
-              </span>
-
-              <span className="px-3 py-1.5 rounded-full border border-white/40 bg-black/50 backdrop-blur-md text-white text-[10px] font-mono font-semibold uppercase tracking-wider">
-                {projects[1].type}
-              </span>
-            </div>
-
-            {/* Bottom Content */}
-            <div className="absolute bottom-0 left-0 right-0 p-6">
-              <div className="flex items-end justify-between">
-                <div>
-                  <h3 className="font-serif text-2xl font-bold text-white mb-1">
-                    {projects[1].title}
-                  </h3>
-
-                  <p className="text-white/60 text-xs font-sans">
-                    Premium Interior Design
-                  </p>
+                <div
+                  className="absolute inset-0 flex items-center justify-center"
+                  style={{
+                    opacity: isActive ? 0 : 1,
+                    transform: isActive
+                      ? "perspective(1000px) rotateY(-90deg)"
+                      : "perspective(1000px) rotateY(0deg)",
+                    transition:
+                      "transform .8s cubic-bezier(.22,1,.36,1), opacity .5s ease",
+                    transformStyle: "preserve-3d",
+                    backfaceVisibility: "hidden",
+                  }}
+                >
+                  <span
+                    style={{
+                      writingMode: "vertical-rl",
+                      transform: "rotate(180deg)",
+                    }}
+                    className="uppercase text-[#D9AF58] tracking-[12px] text-xl font-semibold font-serif"
+                  >
+                    {item.title}
+                  </span>
                 </div>
 
-               
+                {/* Border */}
+
+                <div
+                  className={`
+                    absolute
+                    inset-0
+                    rounded-3xl
+                    transition-all
+                    duration-500
+                    ${
+                      isActive
+                        ? "border-2 border-[#D9AF58]"
+                        : "border border-white/10"
+                    }
+                  `}
+                />
               </div>
-            </div>
 
-            {/* Hover Button */}
-            <div className="absolute top-4 right-4 w-10 h-10 rounded-full bg-black/50 backdrop-blur-xl border border-white/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 hover:bg-[#D9AF58] hover:border-[#D9AF58] group-hover:scale-110">
-              <ArrowUpRight className="w-4 h-4 text-white group-hover:text-black transition-colors duration-300" />
-            </div>
-          </motion.div>
+            );
 
-          {/* Third Card - Right (Same as First) */}
-          <motion.div
-            initial={{ opacity: 0, y: 60 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{
-              duration: 0.8,
-              delay: 0.3,
-            }}
-            className="group relative overflow-hidden rounded-2xl cursor-pointer md:mt-0"
-          >
-            {/* Image Container - Equal Height */}
-            <div className="relative overflow-hidden h-[480px]">
-              <img
-                src={projects[2].image}
-                alt={projects[2].title}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[2000ms]"
-              />
+          })}
 
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+        </div>
 
-              {/* Hover Overlay */}
-              <div className="absolute inset-0 bg-[#D9AF58]/0 group-hover:bg-[#D9AF58]/10 transition-all duration-500" />
-            </div>
-
-            {/* Top Tags */}
-            <div className="absolute top-4 left-4 flex gap-2">
-              <span className="px-3 py-1.5 rounded-full border border-white/40 bg-black/50 backdrop-blur-md text-white text-[10px] font-mono font-semibold uppercase tracking-wider">
-                {projects[2].category}
-              </span>
-
-              <span className="px-3 py-1.5 rounded-full border border-white/40 bg-black/50 backdrop-blur-md text-white text-[10px] font-mono font-semibold uppercase tracking-wider">
-                {projects[2].type}
-              </span>
-            </div>
-
-            {/* Bottom Content */}
-            <div className="absolute bottom-0 left-0 right-0 p-6">
-              <div className="flex items-end justify-between">
-                <div>
-                  <h3 className="font-serif text-2xl font-bold text-white mb-1">
-                    {projects[2].title}
-                  </h3>
-
-                  <p className="text-white/60 text-xs font-sans">
-                    Premium Interior Design
-                  </p>
-                </div>
-
-               
-              </div>
-            </div>
-
-            {/* Hover Button */}
-            <div className="absolute top-4 right-4 w-10 h-10 rounded-full bg-black/50 backdrop-blur-xl border border-white/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 hover:bg-[#D9AF58] hover:border-[#D9AF58] group-hover:scale-110">
-              <ArrowUpRight className="w-4 h-4 text-white group-hover:text-black transition-colors duration-300" />
-            </div>
-          </motion.div>
+        {/* Brand Signature */}
+        <div className="text-center mt-12">
+          <p className="text-white/20 text-[10px] tracking-[0.3em] uppercase font-mono">
+            Rudra x Romulus — Rare Antiques International
+          </p>
         </div>
       </div>
     </section>
   );
-};
-
-export default FeaturedProjects;
+}
