@@ -1,25 +1,26 @@
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 const leadership = [
   {
     name: "Roman Rariy",
     role: "Chief Executive Officer",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=800&fit=crop&crop=face",
+    image: "./images/team1.png",
   },
   {
     name: "Michael Roman",
     role: "Chief Executive Officer",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=800&h=800&fit=crop&crop=face",
+    image: "./images/team2.png",
   },
   {
     name: "Jordan Beckett",
     role: "Managing Director",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=800&h=800&fit=crop&crop=face",
+    image: "./images/team3.png",
   },
   {
     name: "B.S.R. Krishna",
     role: "CEO - Asian Countries",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=800&fit=crop&crop=face&sat=-30",
+    image: "./images/team4.png",
   },
 ];
 
@@ -56,6 +57,8 @@ const coordinators = [
 ];
 
 export default function Leadership() {
+  const navigate = useNavigate();
+
   return (
     <section className="py-28 bg-black">
       <div className="max-w-7xl mx-auto px-6">
@@ -105,125 +108,29 @@ export default function Leadership() {
           ))}
         </div>
 
-        {/* Financial Leadership */}
-        <div className="mt-20">
-          <h3 className="text-center uppercase tracking-[0.35em] text-[#D9AF58] text-xs font-mono font-semibold mb-12">
-            Financial Leadership
-          </h3>
-
-          <div className="grid lg:grid-cols-3 gap-10 items-center">
-            {/* Left */}
-            <motion.div
-              whileHover={{ y: -8 }}
-              transition={{ duration: 0.35 }}
-              className="bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-[#D9AF58]/40 hover:shadow-2xl hover:shadow-[#D9AF58]/5 transition-all"
+        {/* View More Button */}
+        <div className="text-center mt-12">
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => navigate('/gallery')}
+            className="group relative inline-flex items-center gap-3 px-8 py-4 bg-transparent border-2 border-[#D9AF58] text-[#D9AF58] hover:bg-[#D9AF58] hover:text-black transition-all duration-300 rounded-full font-mono tracking-wide text-sm uppercase"
+          >
+            <span>View More Leaders</span>
+            <svg 
+              className="w-4 h-4 group-hover:translate-x-1 transition-transform"
+              fill="none" 
+              stroke="currentColor" 
+              viewBox="0 0 24 24"
             >
-              <img
-                src={finance[0].image}
-                alt={finance[0].name}
-                className="h-[300px] w-full object-cover"
-              />
-              <div className="p-6 text-center">
-                <h4 className="font-serif text-2xl font-bold text-white">
-                  {finance[0].name}
-                </h4>
-                <div className="w-12 h-[2px] bg-[#D9AF58] mx-auto my-3"></div>
-                <p className="text-[#D9AF58] text-sm font-mono tracking-wide">
-                  {finance[0].role}
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Logo */}
-            <div className="flex justify-center">
-              <div className="w-52 h-52 rounded-full border-2 border-[#D9AF58]/30 flex items-center justify-center relative">
-                <div className="absolute inset-0 rounded-full bg-[#D9AF58]/5 blur-2xl"></div>
-                <div className="w-40 h-40 rounded-full border border-[#D9AF58]/50 flex items-center justify-center relative z-10">
-                  <span className="font-serif text-6xl text-[#D9AF58] font-bold tracking-wider">
-                    RR
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            {/* Right */}
-            <motion.div
-              whileHover={{ y: -8 }}
-              transition={{ duration: 0.35 }}
-              className="bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-[#D9AF58]/40 hover:shadow-2xl hover:shadow-[#D9AF58]/5 transition-all"
-            >
-              <img
-                src={finance[1].image}
-                alt={finance[1].name}
-                className="h-[300px] w-full object-cover"
-              />
-              <div className="p-6 text-center">
-                <h4 className="font-serif text-2xl font-bold text-white">
-                  {finance[1].name}
-                </h4>
-                <div className="w-12 h-[2px] bg-[#D9AF58] mx-auto my-3"></div>
-                <p className="text-[#D9AF58] text-sm font-mono tracking-wide">
-                  {finance[1].role}
-                </p>
-              </div>
-            </motion.div>
-          </div>
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </motion.button>
         </div>
 
-        {/* Specialists */}
-        <div className="mt-20">
-          <h3 className="text-center uppercase tracking-[0.35em] text-[#D9AF58] text-xs font-mono font-semibold mb-12">
-            Metallurgy & Advisory
-          </h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {specialists.map((item) => (
-              <motion.div
-                whileHover={{ y: -4 }}
-                key={item.name}
-                className="bg-white/5 border border-white/10 rounded-xl p-6 text-center hover:border-[#D9AF58]/40 hover:shadow-xl hover:shadow-[#D9AF58]/5 transition-all"
-              >
-                <h4 className="font-serif text-lg font-bold text-white">
-                  {item.name}
-                </h4>
-                <div className="w-10 h-[2px] bg-[#D9AF58] mx-auto my-3"></div>
-                <p className="text-white/50 text-sm font-sans">
-                  {item.role}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
+       
 
-        {/* Coordinators */}
-        <div className="mt-20">
-          <h3 className="text-center uppercase tracking-[0.35em] text-[#D9AF58] text-xs font-mono font-semibold mb-12">
-            Regional Coordinators & Operations
-          </h3>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {coordinators.map((item) => (
-              <motion.div
-                whileHover={{ y: -4 }}
-                key={item.name}
-                className="bg-white/5 border border-white/10 rounded-xl p-6 text-center hover:border-[#D9AF58]/40 hover:shadow-xl hover:shadow-[#D9AF58]/5 transition-all"
-              >
-                <h4 className="font-serif text-base font-bold text-white">
-                  {item.name}
-                </h4>
-                <div className="w-8 h-[2px] bg-[#D9AF58] mx-auto my-2"></div>
-                <p className="text-white/40 text-xs font-mono tracking-wide">
-                  {item.role}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-
-        {/* Brand Signature */}
-        <div className="text-center mt-16">
-          <p className="text-white/20 text-[10px] tracking-[0.3em] uppercase font-mono">
-            Rudra x Romulus — Rare Antiques International
-          </p>
-        </div>
+      
 
       </div>
     </section>

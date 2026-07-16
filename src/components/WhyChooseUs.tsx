@@ -1,5 +1,5 @@
-import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+
+import { motion } from "framer-motion";
 import {
   ShieldCheck,
   Globe,
@@ -7,162 +7,69 @@ import {
   Handshake,
   Award,
   Users,
-  Clock,
-  Leaf,
-  ArrowUpRight,
 } from "lucide-react";
 
 const features = [
-  {
-    icon: ShieldCheck,
-    title: "Authenticity Guaranteed",
-    desc: "Every collection is carefully inspected by experienced specialists.",
-    number: "01",
-  },
-  {
-    icon: Award,
-    title: "Professional Evaluation",
-    desc: "We assess historical significance, rarity, and current market value.",
-    number: "02",
-  },
-  {
-    icon: Globe,
-    title: "Global Network",
-    desc: "Strong relationships with collectors, investors, museums, and dealers worldwide.",
-    number: "03",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Secure Transactions",
-    desc: "Professional handling with complete confidentiality.",
-    number: "04",
-  },
-  {
-    icon: Gem,
-    title: "Fair Market Pricing",
-    desc: "Transparent valuations based on international market demand.",
-    number: "05",
-  },
-  {
-    icon: Users,
-    title: "Personalized Service",
-    desc: "Every client receives dedicated guidance from our experts.",
-    number: "06",
-  },
-  {
-    icon: Clock,
-    title: "Heritage Premium",
-    desc: "We are passionate about preserving history for future generations.",
-    number: "07",
-  },
-  {
-    icon: Handshake,
-    title: "Trust & Integrity",
-    desc: "Our business is built on honesty, transparency, and long-term relationships.",
-    number: "08",
-  },
+  { no:"01", title:"Authenticity Guaranteed", desc:"Every collection is carefully inspected by experienced specialists." },
+  { no:"02", title:"Professional Evaluation", desc:"We assess historical significance, rarity and market value." },
+  { no:"03", title:"Global Network", desc:"Trusted relationships with collectors, museums and investors worldwide." },
+  { no:"04", title:"Secure Transactions", desc:"Professional handling with complete confidentiality." },
+  { no:"05", title:"Fair Market Pricing", desc:"Transparent valuations based on international demand." },
+  { no:"06", title:"Personalized Service", desc:"Dedicated guidance from experienced specialists." },
 ];
 
-const WhyChooseUs = () => {
-  const ref = useRef(null);
-
-  const inView = useInView(ref, {
-    once: true,
-    margin: "-100px",
-  });
-
+export default function WhyChooseUs() {
   return (
-    <section
-      ref={ref}
-      className="relative py-24 bg-black overflow-hidden mt-20"
-    >
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
-        
-        {/* HEADER */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-20"
-        >
-          <span className="text-[#D9AF58] uppercase tracking-[0.35em] text-xs font-mono font-semibold block mb-5">
-            Why Choose Us
+    <section className="bg-black py-24 mt-20">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="text-center mb-16">
+          <span className="text-[#D9AF58] uppercase tracking-[0.35em] text-xs font-semibold">
+            WHY CHOOSE US
           </span>
-
-          <h2 className="font-serif text-4xl md:text-6xl font-bold text-white leading-tight mb-6">
-            Excellence Built
-            <br />
+          <h2 className="text-5xl font-serif font-bold text-white mt-5">
+            Excellence Built <br />
             <span className="text-[#D9AF58]">On Trust</span>
           </h2>
-
-          <p className="max-w-2xl mx-auto text-white/50 text-base leading-relaxed font-sans">
-            Rare Roman Antiques is built on a foundation of authenticity, integrity, 
-            and a deep respect for history. Every artifact we handle is treated with 
-            professionalism and care.
+          <p className="text-white/50 max-w-2xl mx-auto mt-6">
+            Rare Roman Antiques is built on authenticity, integrity and respect for history.
           </p>
-        </motion.div>
+        </div>
 
-        {/* Cards Grid - 4 columns on large screens */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {features.map((item, index) => {
-            const Icon = item.icon;
-
-            return (
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="space-y-8">
+            {features.map((item)=>(
               <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 40 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{
-                  duration: 0.6,
-                  delay: index * 0.08,
-                }}
-                className="group"
+                key={item.no}
+                initial={{opacity:0,y:30}}
+                whileInView={{opacity:1,y:0}}
+                viewport={{once:true}}
+                className="flex gap-6 border-b border-white/10 pb-8"
               >
-                <div className="relative h-full bg-white/[0.03] border border-white/10 rounded-[26px] p-7 hover:border-[#D9AF58]/40 transition-all duration-500 hover:-translate-y-2">
-                  
-                  {/* Number */}
-                  <div className="absolute top-5 right-5 text-5xl font-serif font-bold text-white/[0.04] group-hover:text-[#D9AF58]/10 transition-all duration-500">
-                    {item.number}
-                  </div>
+                <div className="w-16 h-16 rounded-full border border-[#D9AF58]/40 bg-[#D9AF58]/10 flex items-center justify-center">
+                  <span className="text-[#D9AF58] text-xl font-bold">{item.no}</span>
+                </div>
 
-                  {/* Icon */}
-                  <div className="w-14 h-14 rounded-2xl bg-white/[0.04] border border-white/10 flex items-center justify-center mb-6 group-hover:bg-[#D9AF58] transition-all duration-500">
-                    <Icon className="w-6 h-6 text-[#D9AF58] group-hover:text-black transition-all duration-500" />
-                  </div>
-
-                  {/* Content */}
-                  <h3 className="font-serif text-lg font-bold text-white mb-3 leading-tight">
-                    {item.title}
-                  </h3>
-
-                  <p className="text-white/45 leading-relaxed text-sm mb-8 font-sans">
-                    {item.desc}
-                  </p>
-
-                  {/* Bottom */}
-                  <div className="flex items-center justify-between">
-                    <div className="w-10 h-[1px] bg-[#D9AF58]" />
-
-                    <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-[#D9AF58] group-hover:border-[#D9AF58] transition-all duration-500">
-                      <ArrowUpRight className="w-4 h-4 text-white group-hover:text-black transition-all duration-500" />
-                    </div>
-                  </div>
+                <div>
+                  <h3 className="text-white font-serif text-2xl mb-3">{item.title}</h3>
+                  <p className="text-white/50 leading-7">{item.desc}</p>
                 </div>
               </motion.div>
-            );
-          })}
-        </div>
+            ))}
+          </div>
 
-        {/* Brand Signature */}
-        <div className="text-center mt-16">
-          <p className="text-white/20 text-[10px] tracking-[0.3em] uppercase font-mono">
-            Rudra x Romulus — Rare Antiques International
-          </p>
+          <motion.div
+            initial={{opacity:0,x:60}}
+            whileInView={{opacity:1,x:0}}
+            viewport={{once:true}}
+          >
+            <img
+              src="/images/why.png"
+              alt="Leadership"
+              className="w-full h-[700px] object-cover rounded-[30px] border border-white/10"
+            />
+          </motion.div>
         </div>
-
       </div>
     </section>
   );
-};
- 
-export default WhyChooseUs;
+}

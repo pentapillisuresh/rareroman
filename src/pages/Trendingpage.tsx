@@ -146,7 +146,7 @@ export default function TrendingPage() {
         <section className="relative pt-40 pb-24 overflow-hidden">
           <div className="absolute inset-0">
             <img
-              src="https://images.unsplash.com/photo-1582896703535-62ef6a3c1a93?w=1920&h=600&fit=crop"
+              src="./images/collection.png"
               alt="Rare Roman Antiques Collection"
               width={1920}
               height={600}

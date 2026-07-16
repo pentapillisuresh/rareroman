@@ -105,7 +105,7 @@ export default function Services() {
         <section className="relative pt-32 pb-32 overflow-hidden">
           <div className="absolute inset-0">
             <img
-              src="https://images.unsplash.com/photo-1582896703535-62ef6a3c1a93?w=1920&h=800&fit=crop"
+              src="./images/servicebanner1.png"
               alt="Rare Roman Antiques - Services"
               width={1920}
               height={800}

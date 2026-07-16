@@ -96,7 +96,7 @@ export default function Leadership() {
         <section className="relative pt-32 pb-24 overflow-hidden">
           <div className="absolute inset-0">
             <img
-              src="https://images.unsplash.com/photo-1582896703535-62ef6a3c1a93?w=1920&h=600&fit=crop"
+              src="./images/teambanner.png"
               alt="Rare Roman Antiques Leadership Team"
               width={1920}
               height={600}

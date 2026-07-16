@@ -23,89 +23,80 @@ interface Service {
   number: string;
 }
 
-const services: Service[] = [
+const services = [
   {
     id: 1,
-    icon: Coins,
-    title: 'Roman Coins & Currency',
-    subtitle: 'Ancient Numismatics',
+    icon: Shield,
+    title: "Authentication Support",
+    subtitle: "Professional Verification",
     description:
-      'Authentic Roman coins from the Republic and Empire eras, commemorative issues, and rare currency specimens for collectors and investors.',
-    color: '#D9AF58',
-    number: '01',
+      "Expert evaluation and authentication using historical references and established assessment methods.",
+    number: "01",
   },
   {
     id: 2,
-    icon: Gem,
-    title: 'Precious Stones & Metals',
-    subtitle: 'Rare & Certified',
+    icon: Landmark,
+    title: "Antique Sourcing",
+    subtitle: "Global Network",
     description:
-      'Certified natural diamonds, precious gemstones, and rare metal specimens sourced through trusted and ethical channels.',
-    color: '#D9AF58',
-    number: '02',
+      "We source rare antiques and historical collectibles for private collectors and institutions worldwide.",
+    number: "02",
   },
   {
     id: 3,
-    icon: Shield,
-    title: 'Military Relics',
-    subtitle: 'Roman Warfare Artifacts',
+    icon: Scroll,
+    title: "Historical Research",
+    subtitle: "Expert Assistance",
     description:
-      'Authentic Roman military artifacts including weapons, armor, standards, and battlefield relics from the legions of Ancient Rome.',
-    color: '#D9AF58',
-    number: '03',
+      "Research support to understand provenance, historical context, and cultural significance.",
+    number: "03",
   },
   {
     id: 4,
-    icon: Landmark,
-    title: 'Architectural Fragments',
-    subtitle: 'Ancient Structures',
+    icon: Trophy,
+    title: "Collection Evaluation",
+    subtitle: "Professional Assessment",
     description:
-      'Original Roman architectural fragments including columns, capitals, mosaics, and building elements from ancient structures and temples.',
-    color: '#D9AF58',
-    number: '04',
+      "Comprehensive evaluation based on rarity, condition, provenance, and market demand.",
+    number: "04",
   },
   {
     id: 5,
-    icon: Scroll,
-    title: 'Historical Documents',
-    subtitle: 'Ancient Writings',
+    icon: Coins,
+    title: "Market Valuation",
+    subtitle: "Fair Pricing",
     description:
-      'Rare papyri, inscriptions, and historical documents preserving the written legacy of the Roman Empire and its citizens.',
-    color: '#D9AF58',
-    number: '05',
+      "Transparent market valuation prepared by experienced specialists.",
+    number: "05",
   },
   {
     id: 6,
-    icon: Sword,
-    title: 'Weapons & Armor',
-    subtitle: 'Legionary Equipment',
+    icon: Crown,
+    title: "Collector Consultation",
+    subtitle: "Private Advisory",
     description:
-      'Authentic Roman weapons including gladii, pila, and specialized armor pieces used by Roman legionaries and gladiators.',
-    color: '#D9AF58',
-    number: '06',
+      "Personalized guidance for collectors, museums, and investors.",
+    number: "06",
   },
   {
     id: 7,
-    icon: Trophy,
-    title: 'Heritage Collections',
-    subtitle: 'Museum-Quality Artifacts',
+    icon: Gem,
+    title: "Secure Buying & Selling",
+    subtitle: "Confidential Transactions",
     description:
-      'Curated collections representing civilizations, kingdoms, and historical periods from across the Roman Empire and beyond.',
-    color: '#D9AF58',
-    number: '07',
+      "Professional assistance for secure acquisitions and private sales.",
+    number: "07",
   },
   {
     id: 8,
-    icon: Crown,
-    title: 'Imperial Artifacts',
-    subtitle: 'Royal & Noble Treasures',
+    icon: Sword,
+    title: "Global Collector Network",
+    subtitle: "International Reach",
     description:
-      'Exceptional artifacts associated with Roman emperors, nobles, and imperial households including jewelry, ceremonial items, and luxury goods.',
-    color: '#D9AF58',
-    number: '08',
+      "Connecting collectors, institutions, and enthusiasts around the world.",
+    number: "08",
   },
 ];
-
 const containerVariants: Variants = {
   hidden: {
     opacity: 0,

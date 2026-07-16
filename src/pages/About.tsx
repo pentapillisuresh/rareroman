@@ -68,7 +68,7 @@ export default function About() {
         <section className="relative pt-24 pb-24 overflow-hidden">
           <div className="absolute inset-0">
             <img
-              src="https://images.unsplash.com/photo-1582896703535-62ef6a3c1a93?w=1920&h=600&fit=crop"
+              src="./images/aboutbanner.png"
               alt="Rare Roman Antiques - Ancient artifacts and collectibles"
               width={1920}
               height={600}
