@@ -67,7 +67,7 @@ const services = [
   {
     icon: TrendingUp,
     number: '06',
-    title: 'Market Value Assessment',
+    title: 'Market Value Assessments',
     subtitle: 'Valuation Services',
     desc: 'We provide accurate market value assessments based on current demand, rarity, historical significance, and international market trends.',
     features: ['Current Market Analysis', 'Rarity Assessment', 'Historical Significance', 'International Trends', 'Fair Valuations'],
